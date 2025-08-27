@@ -45,7 +45,7 @@ services:
       - NODE_ENV=development
       - DATABASE_URL=postgresql://postgres:password@postgres:5432/secops_dashboard
       - REDIS_URL=redis://redis:6379
-      - AUTH_SECRET=62ff1b5018a34edcc6f31c133d3f9682daa57a4e62ea68f002197de6918aaf6c
+      - AUTH_SECRET=${AUTH_SECRET}
       - NEXTAUTH_URL=http://localhost:3000
       - OTEL_SERVICE_NAME=secops-dashboard
     depends_on:

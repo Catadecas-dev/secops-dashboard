@@ -58,7 +58,7 @@ This application follows a **modular layered monolith** architecture with strict
 
 ### 1. Clone the Repository
 ```bash
-git clone <repository-url>
+git clone https://github.com/Catadecas-dev/secops-dashboard.git
 cd secops-dashboard
 ```
 
@@ -100,11 +100,6 @@ npm test
 npm run test:watch
 ```
 
-### Coverage
-```bash
-npm test -- --coverage
-```
-
 ## API Endpoints
 
 ### Authentication
@@ -137,47 +132,39 @@ npm test -- --coverage
 - **Client Admins**: OPEN↔IN_PROGRESS, IN_PROGRESS→RESOLVED
 - **Users**: IN_PROGRESS→RESOLVED (own incidents only)
 
-### Rate Limits
-- **Login**: 5 attempts per 15 minutes per IP
-- **API Writes**: 30 requests per minute per user
-- **API Reads**: 100 requests per minute per user
-
-## Monitoring & Observability
-
-### Metrics
-- HTTP request duration and count
-- Authentication attempts
-- Incident operations
-- Cache hit/miss rates
-
-### Logging
-- Structured JSON logs with request correlation
-- User actions and security events
-- Performance metrics and errors
-
 
 ## Configuration
 
-Key environment variables:
+The application is configured using environment variables. A complete list can be found in the `.env.example` file.
+
+Key variables include:
 
 ```bash
 # Database
-DATABASE_URL=postgresql://user:pass@host:5432/db
+DATABASE_URL="postgresql://postgres:password@localhost:5432/secops_dashboard"
 
 # Redis
-REDIS_URL=redis://host:6379
+REDIS_URL="redis://localhost:6379"
 
-# Authentication
-AUTH_SECRET=your-secret-key
+# Auth
+AUTH_SECRET="your-auth-secret-here-generate-with-openssl-rand-base64-32"
+NEXTAUTH_URL="http://localhost:3000"
+
+# Session Configuration
 SESSION_MAX_AGE=86400
 SESSION_UPDATE_AGE=3600
 
-# Rate Limiting
-RATE_LIMIT_WINDOW_MS=900000
-RATE_LIMIT_MAX_REQUESTS=5
-
-
+# Environment
+NODE_ENV="development"
 ```
+
+## Services
+
+The `docker-compose.yml` file defines the following services for local development:
+
+- **`postgres`**: The PostgreSQL database (version 15) for data persistence.
+- **`redis`**: The Redis server (version 7) for caching and session management.
+- **`app`**: The Next.js application itself, which depends on the database and cache.
 
 ## License
 
@@ -185,4 +172,3 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ---
 
-**Built for enterprise security operations**
