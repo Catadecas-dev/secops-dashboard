@@ -95,7 +95,14 @@ async function main() {
   const createdIncidents = []
   for (const incident of incidents) {
     const created = await prisma.incident.create({
-      data: incident,
+      data: {
+        title: incident.title,
+        description: incident.description,
+        severity: incident.severity,
+        status: incident.status,
+        source: incident.source,
+        createdById: incident.createdById,
+      },
     })
     createdIncidents.push(created)
   }

@@ -171,4 +171,4 @@ $$ LANGUAGE plpgsql;
 CREATE TRIGGER incident_fts_update
     BEFORE INSERT OR UPDATE ON "Incident"
     FOR EACH ROW
-    EXECUTE FUNCTION update_incident_fts();
+    EXECUTE PROCEDURE update_incident_fts();
