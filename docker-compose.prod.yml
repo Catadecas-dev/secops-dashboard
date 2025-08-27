@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  # Production overrides for Next.js Application
+  app:
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgresql://postgres:password@postgres:5432/secops_dashboard
+      - REDIS_URL=redis://redis:6379
+      - AUTH_SECRET=62ff1b5018a34edcc6f31c133d3f9682daa57a4e62ea68f002197de6918aaf6c
+      - NEXTAUTH_URL=http://localhost:3000
+      - OTEL_SERVICE_NAME=secops-dashboard
