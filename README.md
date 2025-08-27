@@ -2,6 +2,10 @@
 
 A production-ready, enterprise-grade Security Operations Dashboard built with Next.js 14, featuring comprehensive incident management, role-based access control, and enterprise security patterns.
 
+## Live Deployment
+
+**Access the live application here:** [https://secops-dashboard.vercel.app/login](https://secops-dashboard.vercel.app/login)
+
 ## Architecture
 
 This application follows a **modular layered monolith** architecture with strict module boundaries:
