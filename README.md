@@ -9,7 +9,7 @@ This application follows a **modular layered monolith** architecture with strict
 - **Auth Module**: Authentication, authorization (RBAC), session management, audit logging
 - **Incidents Module**: Incident lifecycle management, business rules, policies
 - **Comments Module**: Comment management and threading
-- **Shared Modules**: Validation (Zod), errors, caching, observability, rate limiting
+- **Shared Modules**: Validation (Zod), errors, caching
 
 ## Features
 
@@ -31,7 +31,6 @@ This application follows a **modular layered monolith** architecture with strict
 
 ### Enterprise Features
 - **Caching**: Redis-based caching with event-driven invalidation
-- **Observability**: OpenTelemetry traces/metrics, structured JSON logging
 - **Health Checks**: `/internal/healthz` and `/internal/readyz` endpoints
 - **Database**: PostgreSQL with Prisma ORM, transactions, FTS indexing
 - **Session Management**: Secure session rotation, cleanup, multi-device support
